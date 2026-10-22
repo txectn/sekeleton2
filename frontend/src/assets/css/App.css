@@ -1,0 +1,226 @@
+/* 1. Register the variable font */
+@font-face {
+	font-family: "Inter";
+	src: url("../fonts/InterVariable.woff2") format("woff2");
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	/* Color Palette */
+	--color-main: #ffffff;
+	--color-inverse: #000000;
+
+	--bg-main: #ffffff;
+	--bg-surface: #f8fafc;
+	--bg-element: #f5f7fa;
+	--bg-inverse: #000000;
+	--bg-hover: #eff0f2;
+	--bg-hover2: rgb(255, 57, 39);
+
+	--bg-skeleton-main: rgba(107, 107, 179, 0.09);
+	--bg-skeleton-main-70: rgba(110, 110, 175, 0.1);
+	--bg-skeleton-inverse: rgba(255, 255, 255, 0.13);
+
+	--bg-hover-mui-main: rgba(0, 0, 0, 0.04);
+	--bg-hover-mui-ripple: rgba(0, 0, 0, 0.3);
+	--bg-hover-mui-inverse: rgba(255, 255, 255, 0.3);
+	--bg-hover-mui-ripple-inverse: rgba(255, 255, 255, 0.4);
+
+	--bg-hover-mui-element1: rgba(35, 35, 35, 0.9);
+	--bg-hover-mui-ripple-element1: rgb(255, 254, 254, 0.8);
+	--bg-hover-mui-element2: #4c7adf;
+	--bg-hover-mui-ripple-element2: rgba(255, 255, 255, 0.8);
+
+	--glass: rgba(255, 255, 255, 0.62);
+	--glass-strong: rgba(255, 255, 255, 0.86);
+	--border-color-glass: rgba(14, 19, 16, .14);
+	--shadow-glass: inset 0 1px 0 rgba(255, 255, 255, .85), 0 14px 34px -22px rgba(14, 19, 16, .16);
+	--filter-glass: blur(14px) saturate(1.5);
+	/* -webkit-backdrop-filter: var(--filter-glass); */
+
+	--text-main: #000000;
+	--text-muted-100: #4E5562;
+	--text-muted-70: #64748b;
+	--text-inverse: #ffffff;
+
+	--shadow-80: rgba(0, 0, 0, 0.1);
+	--shadow-90: rgba(0, 0, 0, 0.2);
+	--shadow-100: rgba(0, 0, 0, 0.3);
+
+	--shadow-mui: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+
+	--border-main: #e2e8f0;
+	--border-surface: #ffffff;
+	--border-element: #94a3b8;
+	--border-focus: #2563eb;
+	--border-inverse: #776a6a;
+
+	--border-main-70: #cbd5e1;
+
+	--brand-primary: #2563eb;
+	--status-error: #dc2626;
+	--status-success: #16a34a;
+
+	/* Font Family */
+	--ff-inter: 'Inter', sans-serif;
+
+	/* Font Size */
+	--fs-xs: 1.2rem;
+	--fs-sm: 1.4rem;
+	--fs-sm-md: 1.5rem;
+	--fs-base: 1.6rem;
+	--fs-md: 1.8rem;
+	--fs-lg: 2.0rem;
+	--fs-xl: 2.4rem;
+	--fs-xxl: 2.8rem;
+	--fs-xxxl: 3.2rem;
+	--fs-display: 5.5rem;
+
+	/* Font Weight */
+	--fw-regular: 400;
+	--fw-medium: 500;
+	--fw-semibold: 600;
+	--fw-bold: 700;
+}
+
+/* common layout css */
+.layout-wrapper {
+	padding: 0 2rem;
+	width: 100%;
+}
+
+.layout {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.title-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 0.8rem;
+}
+
+.title {
+	font-size: var(--fs-xxxl);
+	font-weight: var(--fw-semibold);
+	color: var(--text-main);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.subtitle {
+	font-size: var(--fs-base);
+	color: var(--text-muted-70);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@media(max-width: 600px) {
+	.title-wrapper {
+		gap: 2rem;
+	}
+
+	.title {
+		font-size: var(--fs-xl);
+	}
+
+	.subtitle {
+		font-size: 1.35rem;
+	}
+}
+
+/* button util */
+.btn {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	color: var(--text-main);
+	transition: background-color 0.3s ease;
+}
+
+@media(hover: hover) {
+	.btn-hover:hover {
+		background-color: var(--bg-hover);
+	}
+}
+
+.hover-active {
+	background-color: var(--bg-hover);
+}
+
+.btn-content {
+	z-index: 2;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	font-size: var(--fs-sm);
+	font-weight: var(--fw-regular);
+	color: var(--text-main);
+}
+
+.btn-overlay {
+	width: 100%;
+	height: 100%;
+	padding: 1rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: background-color 0.3s ease;
+	z-index: 1;
+}
+
+.btn-overlay-padding {
+	width: calc(100% + 2rem);
+	height: calc(100% + 2rem);
+}
+
+@media(pointer: fine) {
+	.btn:hover .btn-overlay {
+		background-color: var(--bg-hover);
+	}
+}
+
+/* underline util */
+.underline {
+	position: relative;
+	text-decoration: none;
+}
+
+.underline::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 1px;
+	background-color: var(--text-main);
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform 250ms ease;
+}
+
+@media(pointer: fine) {
+	.underline:hover::after {
+		transform: scaleX(1);
+		transform-origin: left;
+	}
+}
+
+@media(pointer: coarse) {
+	.underline:active::after {
+		transform: scaleX(1);
+		transform-origin: left;
+	}
+}
